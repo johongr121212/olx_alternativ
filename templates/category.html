@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}OLX {% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class=" w-100 mt-4">
+        <h4 class="d-block" >Recently Products</h4>
+        <div class="d-flex flex-wrap justify-content-between">
+            {% for i in products %}
+            <!-- Product Cart Start -->
+            <div class="card border border-0 shadow-sm d-inline-block m-1 mt-3" style="width: 16.5rem;" >
+                <img height="250" width="190" class=" card-img-top" src="{{ i.image.url }}" alt="">
+                <div class="card-body">
+                    <h6 class="align-center card-title">{{ i.title }}</h6>
+                    <span class="center card-text"><small>{{ i.price }}</small> so'm</span>
+                    <div class="buttons d-flex flex-wrap justify-content-between ">
+                        <i class="bi bi-bookmark-fill"></i> 
+                        <a href="#" class="btn btn-outline-primary" >Details</a>
+                    </div>
+                </div>
+            </div>  
+            <!-- Product Cart End -->
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

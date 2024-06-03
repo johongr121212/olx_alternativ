@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block title %}OLX - Update Profile{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6 mt-5">
+            <h2>Update profile</h2>
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success">Save</button>
+                <a class="btn btn-secondary" href="{% url 'users:profile' request.user %}">Back</a>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock content %}
